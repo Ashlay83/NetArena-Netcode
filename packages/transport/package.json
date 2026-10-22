@@ -1,0 +1,8 @@
+{
+  "name": "@netarena/transport",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "vitest run"
+  }
+}
