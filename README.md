@@ -28,42 +28,7 @@
 17. [Portfolio packaging and resume bullets](#17-portfolio-packaging-and-resume-bullets)
 18. [Glossary and reading list](#18-glossary-and-reading-list)
 
----
 
-## 0. How to use this document (read first, AI agents)
-
-You are an AI agent helping a human build this project. Follow these rules.
-
-**Process rules**
-1. Read this whole document before writing any code.
-2. Work **one phase at a time**, in order (Section 11). Do not start a phase until the previous phase's acceptance criteria pass. At the end of each phase, summarize what was built and what was measured, then wait for the human to say "next phase."
-3. The human is **learning while building**. For each non-trivial concept (prediction, reconciliation, interpolation, lag compensation, delta compression), explain it in 5-10 plain sentences *before* implementing it, then implement it in small steps. Prefer clear code over clever code.
-4. Make **small commits** using Conventional Commits (`feat:`, `fix:`, `test:`, `docs:`, `chore:`, `perf:`). Never commit secrets.
-5. Write **tests alongside code**. A task is not done until its tests pass and its acceptance criteria are demonstrated.
-6. Keep a **dev log**: append an entry to `docs/devlog.md` at the end of every working session (what was done, what broke, what was learned, what is next).
-7. Record every significant design decision as a short ADR in `docs/adr/NNNN-title.md` (context, decision, alternatives, consequences).
-
-**Honesty and accuracy rules**
-- **Never fabricate benchmark numbers or claims.** Every number in docs or resume bullets must come from a measurement recorded under `docs/benchmarks/` with the method in Section 13. If something has not been measured, write "not yet measured."
-- **Verify library APIs against current official documentation** before using them. Library versions and APIs change; do not rely on memory. Install the current stable version with the package manager and let the lockfile pin it. Do not invent URLs.
-- If a requirement in this document conflicts with reality (a library no longer works, a tool changed), stop, explain the conflict, propose an alternative, and record an ADR.
-- If you are unsure about a requirement, ask the human **one clear question** and propose a default.
-
-**Constraints**
-- Everything must run on the human's **Linux laptop**, with **no GPU** and **no paid or third-party GPU/compute-renting services**. The only external service planned is AWS, used for hosting at the end (Phase 7). Check current AWS free-tier terms and set a billing alarm before creating any AWS resource.
-- Use **TypeScript** everywhere except where a phase says otherwise.
-- Keep the game itself minimal. If a task adds gameplay content (new weapons, maps, art) without serving a networking goal, do not do it.
-
-**Open decisions (defaults apply unless the human overrides)**
-
-| Decision | Default | Alternative |
-|---|---|---|
-| Package manager | pnpm workspaces | npm workspaces |
-| Database | MongoDB | PostgreSQL |
-| Game rendering | Plain Canvas 2D | Phaser (rendering only; simulation stays separate) |
-| Binary encoding | Hand-written `DataView` codec | MessagePack/protobuf (benchmark only, Section 15) |
-
----
 
 ## 1. Project summary, goals and non-goals
 
